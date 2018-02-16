@@ -142,6 +142,7 @@
 
 		/* submit via ajax */
 		submitHandler: function(form) {
+			console.log($(form).serialize());
 
 			var sLoader = $('#submit-loader');
 
@@ -149,9 +150,11 @@
 
 		      type: "POST",
 		      url: "https://us-central1-tiffiny-in.cloudfunctions.net/function-1",
-		      data: $(form).serialize(),headers: {
+		      data: $(form).serialize(),
+		      headers: {
 				'Access-Control-Allow-Origin': '*'
 			  },
+        	  crossDomain: true,
 		      beforeSend: function() { 
 
 		      	sLoader.fadeIn(); 
@@ -174,7 +177,8 @@
 	            }
 
 		      },
-		      error: function() {
+		      error: function(error) {
+		      	console.log(error);
 
 		      	sLoader.fadeOut(); 
 		      	$('#message-warning').html("Something went wrong. Please try again.");
