@@ -148,7 +148,7 @@
 			$.ajax({      	
 
 		      type: "POST",
-		      url: "inc/sendEmail.php",
+		      url: "https://us-central1-tiffiny-in.cloudfunctions.net/function-1",
 		      data: $(form).serialize(),
 		      beforeSend: function() { 
 
