@@ -149,7 +149,9 @@
 
 		      type: "POST",
 		      url: "https://us-central1-tiffiny-in.cloudfunctions.net/function-1",
-		      data: $(form).serialize(),
+		      data: $(form).serialize(),headers: {
+				'Access-Control-Allow-Origin': '*'
+			  },
 		      beforeSend: function() { 
 
 		      	sLoader.fadeIn(); 
